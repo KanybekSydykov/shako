@@ -1,0 +1,25 @@
+
+:root{
+    --lora: "Lora", serif;
+    --main-color:#030B15;
+    --secondary-color:#00C4F4;
+}
+
+.bg-main{
+    background: var(--main-color);
+}
+
+.bg-secondary{
+    background-color: var(--secondary-color);
+}
+
+.color-secondary{
+    color: var(--secondary-color);
+}
+
+.color-main{
+    color: var(--main-color);
+}
+
+
+
