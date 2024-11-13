@@ -1,7 +1,11 @@
 :root {
-  --lora: "Lora", serif;
+  --lora: "Montserrat", serif;
   --main-color: #030b15;
   --secondary-color: #00c4f4;
+}
+
+body {
+  font-family: var(--lora);
 }
 
 .bg-main {
@@ -100,7 +104,7 @@ main {
   margin-top: 100px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 120px;
 }
 
 .title {
@@ -115,36 +119,204 @@ main {
   text-align: center;
 }
 
-.offcanvas.offcanvas-end{
-    background: var(--main-color);
-    width: 100dvw;
+.offcanvas.offcanvas-end {
+  background: var(--main-color);
+  width: 100dvw;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(3px);
+}
+
+.fiat {
+  width: 150px;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.crypto {
+  width: 80px;
+  height: auto;
+  object-fit: cover;
+}
+
+#hero .gradient-text {
+  font-size: 55px;
+}
+
+.adv-card {
+  border: 1px solid #353535;
+  padding: 60px 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.adv-card img {
+  width: 50px;
+  height: 50px;
+}
+
+.adv-title {
+  font-size: 24px;
+  font-weight: medium;
+  color: #fff;
+}
+
+.adv-description {
+  font-size: 16px;
+  color: #7d7d7d;
+}
+.step-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  background: var(--main-color); /* Card background remains visible */
+  padding: 25px 15px; /* Adjust padding to maintain space */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.step-card::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px; /* Create a border effect by making the pseudo-element slightly larger than the card */
+  z-index: -1; /* Places the pseudo-element behind the card content */
+  background: linear-gradient(
+    180deg,
+    rgba(0, 196, 244, 1) 0%,
+    rgba(53, 53, 53, 0.92) 8%,
+    rgba(0, 196, 244, 1) 46%,
+    rgba(53, 53, 53, 0.26) 74%,
+    rgba(3, 11, 21, 1) 100%
+  );
+  border-radius: inherit; /* Inherit the border-radius to match the card's rounded corners */
+}
+
+.step-card img {
+  width: 50px;
+  height: 50px;
+}
+
+.icon-cover {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 1px solid #353535;
+  background: #5f5f5f2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.step-card .to-map {
+  max-width: 125px;
+}
+
+.contact-list img {
+  width: 32px;
+  height: auto;
+  max-height: 50px;
+}
+
+.contact-list p {
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+}
+.contact-list a {
+  transition: all 0.3s ease;
+}
+
+.contact-list a:hover {
+  transform: translateY(-5px);
+}
+
+.map iframe{
+    width: 100%;
+    max-height: 470px;
+    border-radius: 24px;
+}
+
+form input,form textarea{
+    max-width: 450px;
+    border-radius: 10px;
+    padding: 8px 12px;
+}
+
+form button{
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: var(--secondary-color);
+    max-width: 350px;
+    transition: all 0.3s ease;
+}
+
+form button:hover{
+    color: var(--main-color);
+    background-color: var(--secondary-color);
+}
+
+form button:active{
+    transform: scale(0.75);
+}
+
+footer{
+    margin-top: 120px;
+    background-color: #00c3f440;
+    padding: 40px 0px;
+}
+
+#charts{
+    padding-top: 75px;
+}
+
+#charts canvas{
+    width: 100%;
+    height: 350px;
+}
+
+#myTabContent1 img{
+    width: 32px;
+    height: 32px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    font-size: 18px;
 }
 
 .navbar{
-    background: rgba(0,0,0,0.2);
-    backdrop-filter: blur(3px);
+    transition: all .4s ease;
 }
 
-.fiat{
-    width: 150px;
-    height: auto;
-    border-radius: 16px;
-    object-fit: cover;
-}
-
-.crypto{
-    width: 80px;
-    height: auto;
-    object-fit: cover;
-}
-
-#hero .gradient-text{
-    font-size: 55px;
+body{
+    overflow-x: hidden;
 }
 
 
 @media screen and (min-width: 992px) {
-  .title,#hero .gradient-text {
+  .title,
+  #hero .gradient-text {
     line-height: 75px;
     font-weight: bold;
     font-size: 72px;
@@ -159,9 +331,31 @@ main {
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(3px);
   }
-  main{
+  main {
     gap: 120px;
   }
+
+  .col-12:nth-of-type(2) .step-card::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    left: -1px;
+    right: -1px; /* Create a border effect by making the pseudo-element slightly larger than the card */
+    z-index: -1; /* Places the pseudo-element behind the card content */
+    background: linear-gradient(
+      360deg,
+      rgba(0, 196, 244, 1) 0%,
+      rgba(53, 53, 53, 0.92) 8%,
+      rgba(0, 196, 244, 1) 46%,
+      rgba(53, 53, 53, 0.26) 74%,
+      rgba(3, 11, 21, 1) 100%
+    );
+    border-radius: inherit; /* Inherit the border-radius to match the card's rounded corners */
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    font-size: 32px;
 }
-
-
+}

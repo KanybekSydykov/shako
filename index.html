@@ -4,11 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ШАКО - Крипто Обменка</title>
-    <meta name="description" content="Продавайте и покупайте криптовалюту легко и безопасно">
-    <meta property="og:image" content="./assets/usdt.svg"> <!-- Correct image URL -->
-    <meta property="og:title" content="ШАКО - Крипто Обменка"> <!-- Open Graph title -->
-    <meta property="og:description" content="Продавайте и покупайте криптовалюту легко и безопасно"> <!-- Open Graph description -->
-    <link rel="icon" href="./assets/usdt.svg">
+    <meta
+      name="description"
+      content="Продавайте и покупайте криптовалюту легко и безопасно"
+    />
+    <meta property="og:image" content="./assets/usdt.svg" />
+    <!-- Correct image URL -->
+    <meta property="og:title" content="ШАКО - Крипто Обменка" />
+    <!-- Open Graph title -->
+    <meta
+      property="og:description"
+      content="Продавайте и покупайте криптовалюту легко и безопасно"
+    />
+    <!-- Open Graph description -->
+    <link rel="icon" href="./assets/usdt.svg" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -18,10 +27,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
   <body class="bg-main">
     <header>
@@ -115,31 +127,158 @@
             <div class="offcanvas-body">
               <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                 <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >Home</a
+                  <a class="nav-link" aria-current="page" href="#charts"
+                    >Главная</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <a class="nav-link" href="#о-нас">О нас</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#преимущества">Преимущества</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#контакты">Контакты</a>
                 </li>
               </ul>
-              <a class="to-map"> На карте </a>
+              <a class="to-map"
+              href="https://maps.app.goo.gl/mNnzwdeHDGkXaiBn6"
+              target="_blank"
+              > На карте </a>
             </div>
           </div>
         </div>
       </nav>
     </header>
     <main>
+        <section id="charts">
+            <div class="container">
+                <div class="d-flex flex-column flex-lg-row justify-content-between">
+                    <div data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" class="col-12 col-lg-6">
+                        <ul class="nav nav-tabs me-5" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">BTC</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">USDT</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">ETH</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="disabled-tab" data-bs-toggle="tab" data-bs-target="#disabled-tab-pane" type="button" role="tab" aria-controls="disabled-tab-pane" aria-selected="false" >LTC</button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                                <canvas id="BTC"></canvas>
+                              
+                            </div>
+                            <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                <canvas id="USDT"></canvas>
+                              
+                            </div>
+                            <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                <canvas id="ETH"></canvas>
+                            </div>
+                            <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">
+                                <canvas id="LTC"></canvas>
+                            </div>
+                          </div>
+                    </div>
+
+                    <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" data-aos-once="true" class="col-12 col-lg-6 d-flex flex-column align-items-center justify-content-center">
+                        
+                        <ul class="nav nav-tabs border-0 justify-content-center gap-4" id="myTab1" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="sell-tab" data-bs-toggle="tab" data-bs-target="#sell-tab-pane" type="button" role="tab" aria-controls="sell-tab-pane" aria-selected="true">Купить</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link" id="buy-tab" data-bs-toggle="tab" data-bs-target="#buy-tab-pane" type="button" role="tab" aria-controls="buy-tab-pane" aria-selected="false">Продать</button>
+                            </li>
+                         
+                          </ul>
+                          <div class="tab-content mt-5" id="myTabContent1">
+                            <div class="tab-pane fade show active" id="sell-tab-pane" role="tabpanel" aria-labelledby="sell-tab" tabindex="0">
+                                <div class="d-flex flex-column gap-5">
+                                    <div class="d-flex flex-column">
+                                        <h5 class="color-secondary">Вы отдаете</h5>
+                                    <div class="d-flex flex-row">
+                                        <input type="number" id="usd-sell"  placeholder="Введите сумму" class="ps-2"  >
+                                        <div class="d-flex flex-row align-items-center gap-2 bg-white p-2">
+                                            <img src="./assets/download.png" class="img-fluid" alt="">
+                                            <div class="d-flex flex-column">
+                                                <h4 class="color-secondary p-0 m-0">USD</h4>
+                                                <h6 class="color-secondary p-0 m-0">US dollar</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="d-flex flex-column">
+                                        <h5 class="color-secondary">Вы получаете</h5>
+                                    <div class="d-flex flex-row">
+                                        <input type="number" id="usdt-sell"  placeholder="Введите сумму" class="ps-2"  >
+                                        <div class="d-flex flex-row align-items-center gap-2 bg-white p-2">
+                                            <img src="./assets/usdt.png" class="img-fluid" alt="">
+                                            <div class="d-flex flex-column">
+                                                <h4 class="color-secondary p-0 m-0">USDT</h4>
+                                                <h6 class="color-secondary p-0 m-0">Tether</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                </div>
+                                <h6 class="color-secondary mt-5">Комиссия 0.1%</h6>
+                            </div>
+                            <div class="tab-pane fade" id="buy-tab-pane" role="tabpanel" aria-labelledby="buy-tab" tabindex="0">      
+                                <div class="tab-pane fade show active" id="sell-tab-pane" role="tabpanel" aria-labelledby="sell-tab" tabindex="0">
+                                    <div class="d-flex flex-column-reverse gap-5">
+                                        <div class="d-flex flex-column">
+                                            <h5 class="color-secondary">Вы получаете</h5>
+                                        <div class="d-flex flex-row">
+                                            <input type="number" id="usd-buy"  placeholder="Введите сумму" class="ps-2" >
+                                            <div class="d-flex flex-row align-items-center gap-2 bg-white p-2">
+                                                <img src="./assets/download.png" class="img-fluid" alt="">
+                                                <div class="d-flex flex-column">
+                                                    <h4 class="color-secondary p-0 m-0">USD</h4>
+                                                    <h6 class="color-secondary p-0 m-0">US dollar</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="d-flex flex-column">
+                                            <h5 class="color-secondary">Вы отдаете</h5>
+                                        <div class="d-flex flex-row">
+                                            <input type="number" id="usdt-buy"  placeholder="Введите сумму" class="ps-2"  >
+                                            <div class="d-flex flex-row align-items-center gap-2 bg-white p-2">
+                                                <img src="./assets/usdt.png" class="img-fluid" alt="">
+                                                <div class="d-flex flex-column">
+                                                    <h4 class="color-secondary p-0 m-0">USDT</h4>
+                                                    <h6 class="color-secondary p-0 m-0">Tether</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    </div>
+                                    <h6 class="color-secondary mt-5">Комиссия 0.1%</h6>                       
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </section>
       <section id="hero">
-        <div class="container">
-          <div class="d-flex flex-lg-row flex-column gap-5 gap-lg-0">
+        <div class="container position-relative overflow-x-hidden">
+          <div class="d-flex flex-row flex-wrap gap-5 gap-md-0">
             <div
-              class="d-flex flex-column col-12 col-md-6 col-lg-6 py-4 py-lg-2 gap-3"
+              class="d-flex flex-column col-12 col-md-6 col-lg-6 py-4 py-lg-2 gap-3 position-relative z-1"
             >
               <h1 class="title text-white">
                 Покупай и продавай
                 <span class="color-secondary">криптовалютные</span> активы
-                вместе с <span class="gradient-text">ШАКО</span>
+                вместе с <span class="gradient-text" data-aos="fade-down" data-aos-duration="1000">ШАКО</span>
               </h1>
               <p class="text-main text-white">
                 Откройте для себя мир криптовалют с нашей платформой! У нас вы
@@ -151,23 +290,37 @@
                 криптовалютам по выгодным курсам с минимальными комиссиями.
               </p>
 
-              <a href="" class="to-map" style="max-width: 240px;"> Cвязаться </a>
+              <a
+              href="https://wa.me/996702212222"
+                class="to-map mx-auto mx-md-0"
+                style="max-width: 240px; min-width: 220px"
+              >
+                Cвязаться
+              </a>
             </div>
             <div
-              class="d-flex col-12 col-md-6 col-lg-6 justify-content-center align-items-start bitcoin"
+              class="d-flex col-12 col-md-6 col-lg-6 justify-content-center align-items-start bitcoin position-sticky top-0"
+              style="height: fit-content"
+              data-aos="fade-left" data-aos-duration="1000" data-aos-once="true"
             >
               <img src="./assets/bitcoin.png" alt="" />
             </div>
           </div>
         </div>
       </section>
-      <section id="o-nas">
-        <div class="container">
-          <div class="d-flex flex-column-reverse flex-lg-row gap-5">
-            <div class="d-flex flex-column gap-2 col-12 col-md-5 about-transactions"
+      <section id="о-нас">
+        <div class="container position-relative">
+          <div
+            class="d-flex flex-column-reverse flex-md-row gap-5 justify-content-evenly"
+          >
+            <div
+              class="d-flex flex-column gap-2 col-12 col-md-5 about-transactions position-sticky top-0"
+              style="height: fit-content"
             >
               <div
                 class="d-flex flex-row exchange align-items-center justify-content-between"
+              data-aos="fade-right" data-aos-duration="1000"
+
               >
                 <img src="./assets/soms.jpg" class="fiat" alt="" />
                 <svg
@@ -191,6 +344,7 @@
               </div>
               <div
                 class="d-flex flex-row exchange align-items-center justify-content-between"
+              data-aos="fade-right" data-aos-duration="1000" data-aos-delay="400" data-aos-once="true"
               >
                 <img src="./assets/soms.jpg" class="fiat" alt="" />
                 <svg
@@ -233,12 +387,569 @@
           </div>
         </div>
       </section>
+
+      <section id="преимущества">
+        <div class="container">
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-column gap-3 col-12 about-text">
+              <h6 class="color-secondary fs-5 text-center">
+                Преимущества работы с нами
+              </h6>
+              <h3 class="fs-1 text-white text-center fw-bold">
+                С нами безопасно, гарантировано и просто
+              </h3>
+              <p class="fs-6 text-white text-center">
+                Широкий спектр услуг по торговле и управлению цифровыми активами
+                для удовлетворения разнообразных торговых потребностей
+              </p>
+            </div>
+
+            <div
+              class="d-flex flex-row flex-wrap gap-5 gap-md-0 align-items-stretch justify-content-center mt-5"
+            >
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 px-2"
+              data-aos="zoom-in-up" data-aos-duration="1000" data-aos-once="true"
+              >
+                <div class="col-12 adv-card">
+                  <div class="icon-cover">
+                    <img src="./assets/unlock.png" alt="" />
+                  </div>
+                  <div class="adv-title">Безопасно</div>
+                  <div class="adv-description">
+                    Шифрование данных самого высшего уровня
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 px-2"
+              data-aos="zoom-in-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="200"
+              >
+                <div class="col-12 adv-card">
+                  <div class="icon-cover">
+                    <img src="./assets/heart.svg" alt="" />
+                  </div>
+                  <div class="adv-title">Всегда рядом</div>
+                  <div class="adv-description">
+                    Работаем 24 на 7 и ответим вам в течении 2 минут
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 px-2"
+              data-aos="zoom-in-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="400"
+              >
+                <div class="col-12 adv-card">
+                  <div class="icon-cover">
+                    <img src="./assets/fast.svg" alt="" />
+                  </div>
+                  <div class="adv-title">Быстро</div>
+                  <div class="adv-description">
+                    Среднее время сделки 15 минут
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4 col-xl-3 px-2"
+              data-aos="zoom-in-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="600"
+              >
+                <div class="col-12 adv-card">
+                  <div class="icon-cover">
+                    <img src="./assets/bitcoin-convert.png" alt="" />
+                  </div>
+                  <div class="adv-title">Мультивалютность</div>
+                  <div class="adv-description">
+                    Поддержка многих криптовалют и фиатных валют
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="инструкция">
+        <div class="container">
+          <div class="d-flex flex-column">
+            <div class="d-flex flex-column gap-3 col-12 about-text">
+              <h6 class="color-secondary fs-5 text-center">
+                Пошаговое руководство
+              </h6>
+              <h3 class="fs-1 text-white text-center fw-bold">
+                Легкие шаги к успеху
+              </h3>
+              <p class="fs-6 text-white text-center">
+                Обменяйте средства за считаные минуты
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-row flex-wrap justify-content-center gap-5 gap-md-3 gap-lg-0 mt-5"
+          >
+            <div class="col-12 col-md-6 col-lg-4 px-5 px-md-2 px-lg-3"
+            data-aos="flip-up" data-aos-duration="1000" data-aos-once="true" 
+            >
+              <div class="step-card">
+                <div class="icon-cover">
+                  <img src="./assets/whatsapp.svg" alt="" />
+                </div>
+
+                <h3 class="fs-1 text-white text-center fw-bold">
+                  Свяжитесь с нами
+                </h3>
+                <p class="fs-6 text-white text-center">
+                  Наш менеджер свяжеться с вами и назначит встречу
+                </p>
+                <a href="https://wa.me/996702212222"
+target="_blank" class="to-map py-2">Связаться</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 px-5 px-md-2 px-lg-3"
+            data-aos="flip-down" data-aos-duration="1000" data-aos-once="true" data-aos-delay="200"
+            >
+              <div class="step-card">
+                <div class="icon-cover">
+                  <img src="./assets/map-pin.svg" alt="" />
+                </div>
+                <h3 class="fs-1 text-white text-center fw-bold">
+                  Приедьте на встречу
+                </h3>
+                <p class="fs-6 text-white text-center">
+                  Удобное расположение нашего офиса в центре Бишкека
+                </p>
+                <a 
+                href="https://maps.app.goo.gl/mNnzwdeHDGkXaiBn6"
+                target="_blank"
+                class="to-map py-2">Адрес</a>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 px-5 px-md-2 px-lg-3"
+            data-aos="flip-up" data-aos-duration="1000" data-aos-once="true" data-aos-delay="400"
+
+            >
+              <div class="step-card">
+                <div class="icon-cover">
+                  <img src="./assets/exchange-btc.svg" alt="" />
+                </div>
+                <h3 class="fs-1 text-white text-center fw-bold">
+                  Купите или продайте
+                </h3>
+                <p class="fs-6 text-white text-center">
+                  Прозрачная сделка пройдет прямо у вас на глазах
+                </p>
+                <a href="#charts" class="to-map py-2">Курсы</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="клиенты">
+        <div
+          class="container d-flex flex-column gap-5 gap-md-0 flex-md-row justify-content-center justify-content-lg-between"
+        >
+          <div class="d-flex flex-column col-12 col-md-6">
+            <div class="d-flex flex-column gap-3 col-12 about-text">
+              <h6 class="color-secondary fs-5 text-center text-lg-start">
+                Статистика
+              </h6>
+              <h3 class="fs-1 text-white text-center text-lg-start fw-bold">
+                Работаем по всему миру
+              </h3>
+              <p class="fs-6 text-white text-center text-lg-start">
+                На рынке криптовалют уже более 10 лет
+              </p>
+            </div>
+
+            <div
+              class="d-flex col-12 flex-row justify-content-between mt-5 text-white"
+            >
+              <div class="count-cover">
+                <h1 class="count"><span class="count-animation" data-target="250">250</span>k</h1>
+                <p class="count-text">Успешных сделок</p>
+              </div>
+              <div class="count-cover">
+                <h1 class="count"><span class="count-animation" data-target="75">75</span>k</h1>
+                <p class="count-text">Довольных клиентов</p>
+              </div>
+              <div class="count-cover">
+                <h1 class="count"><span class="count-animation" data-target="30">30</span>+</h1>
+                <p class="count-text">Больших компаний</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <img src="./assets/world.png" class="img-fluid" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section id="контакты">
+        <div
+          class="container d-flex flex-column gap-5 gap-md-0 flex-md-row justify-content-center justify-content-lg-between"
+        >
+          <div class="d-flex flex-column col-12">
+            <div class="d-flex flex-column gap-3 col-12 about-text">
+              <h6 class="color-secondary fs-5 text-center">Контакты</h6>
+              <h3 class="fs-1 text-white text-center fw-bold">
+                Свяжитесь с нами
+              </h3>
+              <p class="fs-6 text-white text-center">
+                Удобное расположение нашего офиса в центре Бишкека
+              </p>
+            </div>
+
+            <div
+              class="d-flex flex-column flex-md-row gap-5 gap-md-0 mt-5 justify-content-start justify-content-md-between align-items-center"
+            >
+              <div
+                class="contact-list d-flex flex-column gap-4 col-12 col-md-4"
+              >
+                <a
+                  href="tel:+996702212222"
+                  target="_blank"
+                  class="d-flex flex-row gap-2 text-decoration-none text-white align-items-center"
+                >
+                  <img src="./assets/iphone.svg" alt="" />
+                  <p>+996 702 212 222</p>
+                </a>
+                <a
+                  href="https://wa.me/996702212222"
+                  target="_blank"
+                  class="d-flex flex-row gap-2 text-decoration-none text-white align-items-center"
+                >
+                  <img src="./assets/whatsapp.svg" alt="" />
+                  <p>+996 700 700 700</p>
+                </a>
+                <a
+                  href="https://maps.app.goo.gl/mNnzwdeHDGkXaiBn6"
+                  target="_blank"
+                  class="d-flex flex-row gap-2 text-decoration-none text-white align-items-center"
+                >
+                  <img src="./assets/map-pin.svg" alt="" />
+                  <p>Бульвар Эркиндик, 30/1, офис 7</p>
+                </a>
+              </div>
+              <div class="map col-12 col-md-7">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d830.2439359159936!2d74.60543062833503!3d42.870097916940715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x389eb7c551b3b0d1%3A0x33845536c98f73d!2zVkpDNCs1NTcsINCR0LjRiNC60LXQug!5e0!3m2!1sru!2skg!4v1731510341943!5m2!1sru!2skg"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="form">
+        <div class="container">
+          <h3 class="fs-1 text-white text-center fw-bold">Остались вопросы?</h3>
+          <p class="fs-6 text-white text-center">
+            Оставьте заявку и наш менеджер свяжеться с вами
+          </p>
+          <div class="d-flex flex-column flex-md-row justify-content-center gap-5">
+            <div class="col-12 d-none d-md-block col-md-4">
+              <img src="./assets/b-globe.png" class="img-fluid" alt="" />
+            </div>
+            <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+                <form action="" class="d-flex flex-column gap-3 w-100">
+
+              <input type="text" placeholder="Имя" />
+              <input type="tel" placeholder="Номер телефона" />
+              <textarea name="" placeholder="Сообщение" id=""></textarea>
+              <button
+                type="button"
+                class=""
+              >
+                Отправить
+              </button>
+              
+            </form>
+
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row flex-wrap justify-content-between">
+                <a
+                class="navbar-brand d-flex flex-row align-items-center justify-content-center gap-1 position-relative"
+                href="#"
+              >
+                <div class="gradient-text">ШАК</div>
+                <div class="circle">
+                  <img
+                    src="./assets/usdt.svg"
+                    alt="Logo"
+                    width="30"
+                    height="24"
+                    class="d-inline-block align-text-top"
+                  />
+                </div>
+              </a>
+
+              <div class="d-flex flex-column gap-3 col-12 col-md-6 col-lg-3">
+                <a href="#о-нас" class="text-decoration-none text-white">
+                    О нас
+                </a>
+                <a href="#преимущества" class="text-decoration-none text-white">
+                    Преимущества
+                </a>
+                <a href="#инструкция" class="text-decoration-none text-white">
+                    Инструкция
+                </a>
+                <a href="#контакты" class="text-decoration-none text-white">
+                    Контакты
+                </a>
+              </div>
+
+              <div
+              class="contact-list d-flex flex-column gap-4 col-12 col-md-6 col-lg-3"
+            >
+              <a
+                href="tel:+996702212222"
+                target="_blank"
+                class="d-flex flex-row gap-2 text-decoration-none text-white align-items-center"
+              >
+                <img src="./assets/iphone.svg" alt="" />
+                <p class="fs-6">+996 702 212 222</p>
+              </a>
+              <a
+                href="https://wa.me/996702212222"
+                target="_blank"
+                class="d-flex flex-row gap-2 text-decoration-none text-white align-items-center"
+              >
+                <img src="./assets/whatsapp.svg" alt="" />
+                <p class="fs-6">+996 700 700 700</p>
+              </a>
+            
+            </div>
+
+            <div class="d-flex flex-column gap-3 col-12 col-md-6 col-lg-3 contact-list">
+                <a
+                href="https://maps.app.goo.gl/mNnzwdeHDGkXaiBn6"
+                target="_blank"
+                class="d-flex flex-row gap-2 text-decoration-none text-white align-items-center"
+              >
+                <img src="./assets/map-pin.svg" alt="" />
+                <p class="fs-6">Бульвар Эркиндик, 30/1, офис 7</p>
+              </a>
+                <div class="d-flex flex-row align-items-center gap-2">
+                    <img src="./assets/clock.png" alt="">
+                    <p class="fs-6 text-white ">Пн-Пт : 10:00 - 18:00</p>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+   <script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+function chart(ticker) {
+  var days = [];
+  var prices = [];
+
+  // Fetch data from the API
+  fetch('https://min-api.cryptocompare.com/data/histoday?fsym=' + ticker + '&tsym=USD&limit=30')
+    .then(response => response.json())
+    .then(data => {
+      // Log the entire API response for debugging
+      console.log('API Response for', ticker, ':', data);
+
+      var api = data.Data;
+      if (Array.isArray(api)) {
+        // Proceed only if 'api' is an array
+        api.forEach(dayData => {
+          var date = new Date(dayData.time * 1000);
+          var day = date.getDate();
+          var month = date.getMonth() + 1;
+          var year = date.getFullYear();
+
+          var formattedDate = day + '.' + (month < 10 ? '0' + month : month) + '.' + year;
+          days.push(formattedDate);
+          prices.push(dayData.close);
+        });
+
+        // Create the chart
+        var ctx = document.getElementById(ticker).getContext('2d');
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: days,
+            datasets: [{
+              label: 'Курс ' + ticker + ' в USD',
+              data: prices,
+              backgroundColor: 'rgba(100, 196, 244, 1)',
+              borderColor: 'rgba(10, 196, 244, 1)',
+              borderWidth: 1,
+              pointRadius: 0,
+              pointHoverRadius: 5,
+              pointBackgroundColor: 'rgba(0, 9, 24, 1)',
+              pointBorderColor: 'rgba(0, 1, 244, 1)',
+              pointBorderWidth: 0,
+            }]
+          },
+          options: {
+            plugins: {
+              legend: {
+                labels: {
+                  color: 'rgba(0, 196, 244, 1)'
+                }
+              },
+              tooltip: {
+                callbacks: {
+                  label: function(tooltipItem) {
+                    return tooltipItem.raw;
+                  }
+                }
+              }
+            },
+            scales: {
+              y: {
+                beginAtZero: false,
+                ticks: {
+                  color: 'rgba(0, 196, 244, 0.4)',
+                },
+                grid: {
+                  display: true,
+                  color: 'rgba(0, 196, 244, 0.1)'
+                }
+              },
+              x: {
+                ticks: {
+                  color: 'rgba(0, 196, 244, 0.4)',
+                },
+                grid: {
+                  display: true,
+                  color: 'rgba(0, 196, 244, 0.1)'
+                }
+              }
+            }
+          }
+        });
+      } else {
+        console.error('Data is not an array for ticker:', ticker);
+      }
+    })
+    .catch(error => console.error('Error fetching data:', error));
+}
+
+// Call chart function for each cryptocurrency in USD
+chart('BTC');   // Bitcoin in USD
+chart('USDT');  // Tether in USD
+chart('ETH');   // Ethereum in USD
+chart('LTC');   // Litecoin in USD
+
+});
+
+   </script>
+
+   <script>
+    document.addEventListener('DOMContentLoaded',function(){
+        const sellUsd = document.getElementById('usd-sell');
+        const sellUsdt = document.getElementById('usdt-sell');
+        const buyUsd = document.getElementById('usd-buy')
+        const buyUsdt = document.getElementById('usdt-buy')
+
+        let sellUsdValue = '';
+        let sellUsdtValue = '';
+        let buyUsdValue = '';
+        let buyUsdtValue = '';
+
+        sellUsd.addEventListener("input",(e)=>{
+           sellUsdtValue =Number( e.target.value) - Number((e.target.value * 0.001));
+           sellUsdt.value = sellUsdtValue
+        })
+        sellUsdt.addEventListener('input',(e)=>{
+            sellUsdtValue = Number(e.target.value) + Number((e.target.value * 0.001));
+            sellUsd.value = sellUsdtValue
+        })
+        buyUsd.addEventListener("input",(e)=>{
+            buyUsdtValue =Number( e.target.value) + Number((e.target.value * 0.001));
+            buyUsdt.value = buyUsdtValue
+        })
+        buyUsdt.addEventListener('input',(e)=>{
+            buyUsdtValue = Number(e.target.value) - Number((e.target.value * 0.001));
+            buyUsd.value = buyUsdtValue
+        })
+
+
+    })
+   </script>
+
+   <script>
+ document.addEventListener('DOMContentLoaded', function() {
+  const sections = document.querySelectorAll('section');  // All sections that you want to track
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link'); // All the nav links
+  
+  // Create an IntersectionObserver to observe the sections
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      // Try to find the corresponding nav link by matching the section id
+      const link = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
+      
+      // Only proceed if the link exists
+      if (link) {
+        if (entry.isIntersecting) {
+          // Add the active class to the link when the section is in view
+          link.classList.add('active');
+        } else {
+          // Remove the active class when the section is out of view
+          link.classList.remove('active');
+        }
+      }
+    });
+  }, {
+    threshold: 0.5 // This means the section will be considered in view when 50% of it is visible
+  });
+
+  // Observe each section
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+});
+
+
+   </script>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.navbar');  // Assuming your header has the class 'navbar'
+  let lastScrollTop = 0; // Keeps track of the last scroll position
+
+  window.addEventListener('scroll', function() {
+    let currentScroll = window.scrollY || document.documentElement.scrollTop;  // Get current scroll position
+
+    if (currentScroll > 200) {
+      if (currentScroll > lastScrollTop) {
+        // Scrolled down and more than 200px, hide the header
+        header.style.transform = 'translateY(-100%)';
+      } else {
+        // Scrolling up and more than 200px, show the header
+        header.style.transform = 'translateY(0)';
+      }
+    } else {
+      // Scroll is less than 200px, show the header
+      header.style.transform = 'translateY(0)';
+    }
+
+    // Update last scroll position
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
+  });
+});
+   </script>
+<script src="./count.js"></script>
+<script>
+    AOS.init();
+  </script>
   </body>
 </html>
