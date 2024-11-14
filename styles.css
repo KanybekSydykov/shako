@@ -108,9 +108,9 @@ main {
 }
 
 .title {
-  line-height: 55px;
+  line-height: 50px;
   font-weight: bold;
-  font-size: 42px;
+  font-size: 36px;
   text-align: center;
 }
 
@@ -122,11 +122,6 @@ main {
 .offcanvas.offcanvas-end {
   background: var(--main-color);
   width: 100dvw;
-}
-
-.navbar {
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(3px);
 }
 
 .fiat {
@@ -243,76 +238,94 @@ main {
   transform: translateY(-5px);
 }
 
-.map iframe{
-    width: 100%;
-    max-height: 470px;
-    border-radius: 24px;
+.map iframe {
+  width: 100%;
+  max-height: 470px;
+  border-radius: 24px;
 }
 
-form input,form textarea{
-    max-width: 450px;
-    border-radius: 10px;
-    padding: 8px 12px;
+form input,
+form textarea {
+  max-width: 450px;
+  border-radius: 10px;
+  padding: 8px 12px;
 }
 
-form button{
-    background-color: transparent;
-    border: 1px solid var(--secondary-color);
-    border-radius: 10px;
-    padding: 8px 12px;
-    color: var(--secondary-color);
-    max-width: 350px;
-    transition: all 0.3s ease;
+form button {
+  background-color: transparent;
+  border: 1px solid var(--secondary-color);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color: var(--secondary-color);
+  max-width: 100%;
+  transition: all 0.3s ease;
 }
 
-form button:hover{
-    color: var(--main-color);
-    background-color: var(--secondary-color);
+form button:hover {
+  color: var(--main-color);
+  background-color: var(--secondary-color);
 }
 
-form button:active{
-    transform: scale(0.75);
+form button:active {
+  transform: scale(0.75);
 }
 
-footer{
-    margin-top: 120px;
-    background-color: #00c3f440;
-    padding: 40px 0px;
+footer {
+  margin-top: 120px;
+  background-color: #00c3f440;
+  padding: 40px 0px;
 }
 
-#charts{
-    padding-top: 75px;
+#charts {
+  padding-top: 75px;
 }
 
-#charts canvas{
-    width: 100%;
-    height: 350px;
+#charts canvas {
+  width: 100%;
+  height: 350px;
 }
 
-#myTabContent1 img{
-    width: 32px;
-    height: 32px;
+#myTabContent1 img {
+  width: 32px;
+  height: 32px;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type="number"] {
-    -moz-appearance: textfield;
-    font-size: 18px;
+  -moz-appearance: textfield;
+  font-size: 18px;
+}
+
+header {
+  transition: all 0.4s ease;
 }
 
 .navbar{
-    transition: all .4s ease;
+  background: var(--main-color);
 }
 
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 
+header {
+  background: var(--main-color);
+}
+
+.hidden-header{
+  transform: translateY(-100%);
+}
+
+section{
+  scroll-margin-top: 100px;
+  overflow-x: hidden;
+  max-width: 100dvw;
+}
 
 @media screen and (min-width: 992px) {
   .title,
@@ -327,10 +340,7 @@ body{
     font-size: 24px;
     text-align: left;
   }
-  .navbar {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(3px);
-  }
+
   main {
     gap: 120px;
   }
@@ -357,5 +367,9 @@ body{
   input[type="number"] {
     -moz-appearance: textfield;
     font-size: 32px;
-}
+  }
+
+  form button{
+    max-width: 350px;
+  }
 }

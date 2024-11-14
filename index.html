@@ -36,8 +36,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
   <body class="bg-main">
-    <header>
-      <nav class="navbar navbar-expand-lg fixed-top">
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg">
         <div class="container">
           <a
             class="navbar-brand d-flex flex-row align-items-center justify-content-center gap-1 position-relative"
@@ -125,23 +125,27 @@
               </button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                <li class="nav-item">
+              <ul class="navbar-nav d-flex flex-column flex-lg-row gap-4 gap-lg-0 justify-content-center flex-grow-1 pe-3">
+                <li class="nav-item"  data-bs-dismiss="offcanvas"
+                aria-label="Close">
                   <a class="nav-link" aria-current="page" href="#charts"
                     >Главная</a
                   >
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"  data-bs-dismiss="offcanvas"
+                aria-label="Close">
                   <a class="nav-link" href="#о-нас">О нас</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"  data-bs-dismiss="offcanvas"
+                aria-label="Close">
                   <a class="nav-link" href="#преимущества">Преимущества</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"  data-bs-dismiss="offcanvas"
+                aria-label="Close">
                   <a class="nav-link" href="#контакты">Контакты</a>
                 </li>
               </ul>
-              <a class="to-map"
+              <a class="to-map mt-5 mt-lg-0"
               href="https://maps.app.goo.gl/mNnzwdeHDGkXaiBn6"
               target="_blank"
               > На карте </a>
@@ -277,7 +281,7 @@
             >
               <h1 class="title text-white">
                 Покупай и продавай
-                <span class="color-secondary">криптовалютные</span> активы
+                <span class="color-secondary">криптовалютные </span>активы
                 вместе с <span class="gradient-text" data-aos="fade-down" data-aos-duration="1000">ШАКО</span>
               </h1>
               <p class="text-main text-white">
@@ -656,12 +660,13 @@ target="_blank" class="to-map py-2">Связаться</a>
             <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
                 <form action="" class="d-flex flex-column gap-3 w-100">
 
-              <input type="text" placeholder="Имя" />
-              <input type="tel" placeholder="Номер телефона" />
-              <textarea name="" placeholder="Сообщение" id=""></textarea>
+              <input type="text" id="name" placeholder="Имя" />
+              <input type="tel" id="phone" placeholder="Номер телефона" />
+              <textarea name="" id="message" placeholder="Сообщение" id=""></textarea>
               <button
                 type="button"
                 class=""
+                id="form-btn"
               >
                 Отправить
               </button>
@@ -675,7 +680,7 @@ target="_blank" class="to-map py-2">Связаться</a>
     </main>
     <footer>
         <div class="container">
-            <div class="d-flex flex-column flex-md-row flex-wrap justify-content-between">
+            <div class="d-flex flex-column flex-md-row flex-wrap justify-content-between gap-4 gap-lg-0">
                 <a
                 class="navbar-brand d-flex flex-row align-items-center justify-content-center gap-1 position-relative"
                 href="#"
@@ -923,7 +928,7 @@ chart('LTC');   // Litecoin in USD
 
    <script>
     document.addEventListener('DOMContentLoaded', function() {
-  const header = document.querySelector('.navbar');  // Assuming your header has the class 'navbar'
+  const header = document.querySelector('header');  // Assuming your header has the class 'navbar'
   let lastScrollTop = 0; // Keeps track of the last scroll position
 
   window.addEventListener('scroll', function() {
@@ -932,14 +937,15 @@ chart('LTC');   // Litecoin in USD
     if (currentScroll > 200) {
       if (currentScroll > lastScrollTop) {
         // Scrolled down and more than 200px, hide the header
-        header.style.transform = 'translateY(-100%)';
+        header.classList.add('hidden-header');
       } else {
         // Scrolling up and more than 200px, show the header
-        header.style.transform = 'translateY(0)';
+        header.classList.remove('hidden-header');
+
       }
     } else {
       // Scroll is less than 200px, show the header
-      header.style.transform = 'translateY(0)';
+      header.classList.remove('hidden-header');
     }
 
     // Update last scroll position
@@ -948,6 +954,8 @@ chart('LTC');   // Litecoin in USD
 });
    </script>
 <script src="./count.js"></script>
+
+<script src="./tg.js"></script>
 <script>
     AOS.init();
   </script>
